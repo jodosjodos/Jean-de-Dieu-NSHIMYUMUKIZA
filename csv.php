@@ -7,7 +7,7 @@ header('Content-Disposition: attachment; filename="students.csv"');
 $output = fopen('php://output', 'w');
 
 // Write header row
-fputcsv($output, array('id', 'Email', 'phone','course'));
+fputcsv($output, array('id','name', 'email', 'phone','course'));
 
 $conn = mysqli_connect('localhost', 'root', '', 'blog');
 $result = mysqli_query($conn, 'SELECT * FROM students');

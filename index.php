@@ -23,11 +23,12 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header p-3">
                         <h4>Student Details
-                            <a href="student-create.php" class="btn btn-primary float-end">Add Students</a>
-                            <a href="pdf.php" class="btn btn-primary float-end">download pdf</a>
-                            <a href="csv.php" class="btn btn-primary float-end">download csv</a>
+                            <a href="student-create.php" class="btn btn-primary float-end ml-5">Add Students</a>
+                            <a href="pdf.php" class="btn btn-secondary  float-end mr-2">download pdf</a>
+                            <a href="csv.php" class="btn btn-success float-end
+                            ">download csv</a>
                         </h4>
                     </div>
                     <div class="card-body">
