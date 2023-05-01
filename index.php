@@ -26,6 +26,8 @@
                     <div class="card-header">
                         <h4>Student Details
                             <a href="student-create.php" class="btn btn-primary float-end">Add Students</a>
+                            <a href="pdf.php" class="btn btn-primary float-end">download pdf</a>
+                            <a href="csv.php" class="btn btn-primary float-end">download csv</a>
                         </h4>
                     </div>
                     <div class="card-body">
