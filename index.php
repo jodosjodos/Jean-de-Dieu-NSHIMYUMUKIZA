@@ -1,6 +1,11 @@
 <?php
     session_start();
     require 'dbcon.php';
+    if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+      
+        header('Location: '.'http://localhost/CRUD/login.php');
+        exit();
+    }
 ?>
 <!doctype html>
 <html lang="en">
@@ -84,6 +89,7 @@
                 </div>
             </div>
         </div>
+        <a type="submit"  class="btn btn-primary"  href="./logout.php" >Logout </a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

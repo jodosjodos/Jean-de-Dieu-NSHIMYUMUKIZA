@@ -1,6 +1,7 @@
 <?php
 session_start();
 require 'dbcon.php';
+require "dbcon2.php";
 
 if(isset($_POST['delete_student']))
 {
@@ -74,5 +75,50 @@ if(isset($_POST['save_student']))
         exit(0);
     }
 }
+
+if(isset($_POST['submit'])){
+    $username=$_POST['username'];
+    $password=$_POST['password'];
+   
+    $sql="SELECT * FROM admin WHERE usernames='$username' AND passwords='$password'";
+    $result=mysqli_query($connect,$sql);
+    $count=mysqli_num_rows($result);
+    $row=mysqli_fetch_assoc($result);
+    
+    if($count===1){
+        $_SESSION['message']="welcome".$username;
+        $_SESSION['loggedin'] = true;
+        header("location:"."http://localhost/CRUD");
+        exit();
+    }else{
+        $_SESSION['message']="no user found with this ".$username;
+        header("location:"."http://localhost/CRUD/login.php");
+        exit();
+    }
+    
+
+}
+
+if(isset($_POST['register'])){
+    $userName=$_POST['username'];
+    $email=$_POST['email'];
+    $password=$_POST['password'];
+    $phone=$_POST['phone'];
+
+    $sql="INSERT INTO admin (usernames,email,passwords,phone) VALUES ('$userName','$email','$password','$phone')";
+    $res=mysqli_query($connect,$sql);
+
+    if($res===true){
+        $_SESSION['message']='account'.$userName.' created successfully';
+        header("location:"."http://localhost/CRUD/login.php");
+        exit();
+    }else{
+        $_SESSION['message']='account'.$userName.'not registered';
+        header("location:"."http://localhost/CRUD/signUp.php");
+        exit();
+    }
+}
+
+    
 
 ?>
